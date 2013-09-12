@@ -2,13 +2,13 @@
   
   function argsAsArray(fun, a) {
     return fun.apply(null,a);
-  };
+  }
   
   
   function speak(fun, a) {
 	
 	  return fun.call(a);	 
-	  };
+	  }
 
   
   function functionFunction(a) {
@@ -17,9 +17,9 @@
             return str;
       }
       return subFunction;
-};
+  }
 
-function makeClosures(arry, sq) {
+  function makeClosures(arry, sq) {
     var fns = [];
     for (var i=0; i< arry.length; i++) {
         (function(i) {
@@ -29,30 +29,30 @@ function makeClosures(arry, sq) {
         })(i)   
     }
     return fns;
-};
+  }
 
 
-function partial(f) {
+  function partial(f) {
 	  var args = Array.prototype.slice.call(arguments, 1)
 	  return function() {
 	    var remainingArgs = Array.prototype.slice.call(arguments)
 	    return f.apply(null, args.concat(remainingArgs))
 	  }
-	}
+   }
 
 
-function useArguments(a) {
+  function useArguments(a) {
 	
-	  var args = arguments;	  
-	  var sum=0;
-	  for (var i=0; i < args.length; i++)
+     var args = arguments;	  
+     var sum=0;
+        for (var i=0; i < args.length; i++)
 		  sum += args[i];
 	  
 	  return sum;
-};
+   }
 
 
-var partialUsingArguments = (function() {
+  var partialUsingArguments = (function() {
 
 	var slice = Array.prototype.slice;
 	function partialUsingArguments(fn) {
@@ -74,19 +74,17 @@ var partialUsingArguments = (function() {
 	}());
 
 
-function callIt(fun) {
+   function callIt(fun) {
 	
- var args = Array.prototype.slice.call(arguments, 1);
-
- return fun.apply(null,args);
+     var args = Array.prototype.slice.call(arguments, 1);
+     return fun.apply(null,args);
 		 		  
-};
+    }
 
 
-function curryIt(fn) {
+   function curryIt(fn) {
 	
 	var n = fn.length;
-		 
 	function getCurriedFn(prev) {
 
 		return function(arg) {
@@ -100,7 +98,7 @@ function curryIt(fn) {
 	};
 	
 	return getCurriedFn([]);
-	}
+	
 
 
 
